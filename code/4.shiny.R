@@ -31,7 +31,7 @@ dataset <- reactive({
 
 ui <- fluidPage(
   
-  titlePanel("German Power System Explorer"),
+  titlePanel("German Power Plants Explorer"),
   
   sidebarPanel(
     selectInput('geo_level', 'Geographical Level', c("State" = "state", "Community" = "plz")),

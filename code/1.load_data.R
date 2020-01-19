@@ -43,7 +43,6 @@ url_variables_expl <- "https://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/
 
 
 # ***********************************************************************************************
-
 #### load data ####
 
 input <- here("data", "raw")

@@ -43,27 +43,7 @@ url_variables_expl <- "https://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/
 
 
 # ***********************************************************************************************
-<<<<<<< HEAD
-#### installing, loading libraries ####
-packages <- c("here", "httr", "zip", "readxl", "shiny", "ggplot2", "sf")
 
-### install if necessary
-lapply(packages, 
-       function(x)
-       {
-           if(!(x %in% installed.packages()))
-           {
-               install.packages(x)  
-           }
-       })
-
-lapply(packages, require, character.only = T)
-
-
-
-# ***********************************************************************************************
-=======
->>>>>>> upstream/master
 #### load data ####
 
 input <- here("data", "raw")

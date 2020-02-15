@@ -271,7 +271,7 @@ server <- function(input, output) {
       }
       
     }
-  })
+  }, bg="transparent")
 }
 
 # ***********************************************************************************************
@@ -318,8 +318,8 @@ ui <- dashboardPage(
                                                          min = 2, max = 10, value = 6),
                                              
                                              # Button
-                                             downloadButton("downloadData", "Download Data"),
-                                ),
+                                             downloadButton("downloadData", "Download Data")
+                                )
                          )
                        )
                        

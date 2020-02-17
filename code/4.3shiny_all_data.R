@@ -165,7 +165,8 @@ server <- function(input, output) {
     if (input$source == "All"){
       dataset_yearly_combined() %>%
         filter(start_year >= input$years[1]) %>%
-        filter(start_year <= input$years[2])
+        filter(start_year <= input$years[2]) %>%
+        filter(regionid == selected_regionid)
     } else{
       dataset_yearly() %>%
         filter(EinheitenTyp == input$source) %>%
@@ -249,7 +250,6 @@ server <- function(input, output) {
     }
   })
   
-  
   output$title_change_over_time <- renderText({
     regionid <- input$map_shape_click$id
     if(input$source == "All"){
@@ -319,7 +319,7 @@ server <- function(input, output) {
   output$plot_change_over_time <- renderPlot({
     if (!is.null(input$map_shape_click)) {
       
-      ggplot(Period(), aes(x=start_year, y=get(input$out_var), fill=EinheitenTyp))+
+      ggplot(Period(), aes(x=start_year, y=get(input$out_var))) +
         geom_line(size=1.5) + geom_bar(stat="identity", fill = "yellow") +
         theme_minimal(base_size = 16) +
         xlab('Year') + ylab(title_legend()) +

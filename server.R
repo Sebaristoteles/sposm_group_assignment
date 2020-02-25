@@ -3,14 +3,6 @@ library("here")
 source(here::here("code", "3.prepare_data_for_shiny.R"))
 
 
-
-# ---------------------------------- load data: First Story on Solar and Income --------------------
-## load
-data_state_solar_income_2015 <- read.csv2(here::here("data", "processed", paste0("data_state_solar_income_2015", ".csv")), row.names = NULL, encoding = "UTF-8", stringsAsFactors = FALSE)
-## load
-data_county_solar_income_2015 <- read.csv2(here::here("data", "processed", paste0("data_county_solar_income_2015", ".csv")), row.names = NULL, encoding = "UTF-8", stringsAsFactors = FALSE)
-
-
 # -------------------------------------------- create server  ---------------------------------
 server <- function(input, output) {
   
@@ -237,15 +229,15 @@ server <- function(input, output) {
     # prepare a check for region id to be in
     if (input$geo_level == "state"){
       if (input$source == "All"){
-        check <- map_data_state_yearly_combined_all_sources$regionid
+        check <- unique(map_data_state_combined_all_sources$regionid)
       }else{
-        check <- map_data_state_yearly$regionid
+        check <- unigue(map_data_state_combined$regionid)
       }
     }else{
       if (input$source == "All"){
-        check <- map_data_county_yearly_combined_all_sources$regionid
+        check <- unique(map_data_county_combined_all_sources$regionid)
       }else{
-        check <- map_data_county_yearly$regionid
+        check <- unique(map_data_county$regionid)
       }
     }
     

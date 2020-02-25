@@ -21,11 +21,9 @@ lapply(packages, require, character.only = T)
 # ---------------------------------------------- D E F I N I T I O N S --------------------------
 #rm(list=ls(all=TRUE))
 options(scipen = 999) # no scientific numbering
-subfolder <- zip_list(here("data", "raw", "shape_germany_bundesland_landkreis.zip"))$filename[1]
-subfolder <- gsub("/", "", subfolder, fixed = TRUE)
-file_ger_shape <- here("data", "raw", "shape_ger", subfolder, "vg2500", "vg2500_sta.shp")
-file_ger_shape_state <- here("data", "raw", "shape_ger", subfolder, "vg2500", "vg2500_lan.shp")
-file_ger_shape_county <- here("data", "raw", "shape_ger", subfolder, "vg2500", "vg2500_krs.shp")
+file_ger_shape <- here("data", "raw", "vg2500", "vg2500_sta.shp")
+file_ger_shape_state <- here("data", "raw", "vg2500", "vg2500_lan.shp")
+file_ger_shape_county <- here("data", "raw", "vg2500", "vg2500_krs.shp")
 
 
 # ------------------------------------------- load data and prepare data ---------------------------

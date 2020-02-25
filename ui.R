@@ -106,9 +106,11 @@ ui <- dashboardPage(
               h2("Reference"),
               div(class = "list",
                   tags$ul(
-                    tags$li(tags$b("Data"), ": German power plants raw data is downloaded from official register", tags$a(href="https://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Energie/Unternehmen_Institutionen/ErneuerbareEnergien/ZahlenDatenInformationen/VOeFF_Registerdaten/DatenAb310119.zip", "Marktstammdatenregister"),"."),
+                    tags$li(tags$b("Data"), ": German power plants raw data is downloaded from official register", tags$a(href="https://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Energie/Unternehmen_Institutionen/ErneuerbareEnergien/ZahlenDatenInformationen/VOeFF_Registerdaten/DatenAb310119.zip", "Marktstammdatenregister."),"\n",
+                            "Moreover, the geospatial information relies on data provided by the ", tags$a(href="http://www.bkg.bund.de", "Bundesrepublick Deutschland.")),
                     p("The source provides more than 100 variables for various purposes and we have only used a few of them."),
-                    tags$li(tags$b("License"), ": Term of use of MaStR data is subject to", tags$a(href="http://www.gesetze-im-internet.de/mastrv/index.html", "Ordinance on the central electronic directory of energy management data"), "under", tags$a(href="http://www.gesetze-im-internet.de/mastrv/__15.html","Section 15 Public Accessibility of the Data"), "and", tags$a(href="http://www.gesetze-im-internet.de/mastrv/__20.html", "Section 20 Terms of Use"),".")
+                    tags$li(tags$b("License"), ": Term of use of MaStR data is subject to", tags$a(href="http://www.gesetze-im-internet.de/mastrv/index.html", "Ordinance on the central electronic directory of energy management data"), "under", tags$a(href="http://www.gesetze-im-internet.de/mastrv/__15.html","Section 15 Public Accessibility of the Data"), "and", tags$a(href="http://www.gesetze-im-internet.de/mastrv/__20.html", "Section 20 Terms of Use."),"\n",
+                            "License of geospatial data according to ", tags$a(href="https://www.govdata.de/dl-de/by-2-0", "dl-de-by-2.0."))
                   )
               )
       )

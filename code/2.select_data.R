@@ -49,11 +49,32 @@ file_ger_shape_state <- here("data", "raw", "shape_ger", subfolder, "vg2500", "v
 file_ger_shape_county <- here("data", "raw", "shape_ger", subfolder, "vg2500", "vg2500_krs.shp")
 
 
+# -------------- clean up pathes before going on ------------------
+# Shiny does not like paths longer than 100 bytes
+path <- here::here("data", "raw", "shape_ger", subfolder, "vg2500")
+files_to_copy <- list.files(path)
+files_to_copy <- files_to_copy[!grepl(".ini", files_to_copy, fixed = T)]
+dir.create(here::here("data", "raw", "vg2500"))
+file.copy(paste0(path, "/", files_to_copy), here::here("data", "raw", "vg2500", files_to_copy))
+
+# delete folder
+folder_to_delete <- here::here("data", "raw", "shape_ger")
+unlink(folder_to_delete, recursive=TRUE, force = T)
+
+# define files to load
+file_ger_shape <- here("data", "raw", "vg2500", "vg2500_sta.shp")
+file_ger_shape_state <- here("data", "raw", "vg2500", "vg2500_lan.shp")
+file_ger_shape_county <- here("data", "raw", "vg2500", "vg2500_krs.shp")
+
+
+
+
 # ***********************************************************************************************
 #### load data ####
 enh <- read.csv2(here("data", "raw", file_to_load), row.names = NULL, encoding = "UTF-8")
 enh2 <- read.csv2(here("data", "raw", file_to_load2), row.names = NULL, encoding = "UTF-8", stringsAsFactors = FALSE)
 
+#here::here("data", "raw", "vg2500_sta.shp")
 ger_shape <- st_read(file_ger_shape, options = "ENCODING=UTF-8", stringsAsFactors = FALSE)
 ger_shape_state <- st_read(file_ger_shape_state, options = "ENCODING=UTF-8", stringsAsFactors = FALSE)
 ger_shape_county <- st_read(file_ger_shape_county, options = "ENCODING=UTF-8", stringsAsFactors = FALSE)
@@ -744,6 +765,10 @@ data_county_solar_income_2015 <- data_county_solar_income_2015 %>%
 
 # save
 write.csv2(data_county_solar_income_2015, file = here("data", "processed", "data_county_solar_income_2015.csv"), row.names = FALSE, fileEncoding="UTF-8")
+
+
+# ----------------------------------------------------- shorten data paths ---------
+
 
 
 # ***********************************************************************************************

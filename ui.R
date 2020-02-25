@@ -1,4 +1,18 @@
-# -------------------------------------------- create ui  -----------------------------------
+# -------------- ui file has to load the libraries as well for successfull running on server -----
+#packages <- c("here", "shiny", sf", "tmap", "tmaptools", "ggplot2", "dplyr", "shinydashboard", "leaflet")
+#lapply(packages, require, character.only = T)
+library(dplyr)
+library(ggplot2)
+library(here)
+library(sf)
+library(leaflet)
+library(shiny)
+library(shinydashboard)
+library(tmap)
+library(tmaptools)
+
+
+# -------------------------------------------- create ui  ----------------------------------------
 ui <- dashboardPage(
   dashboardHeader(title = "Dashboard"),
   dashboardSidebar(

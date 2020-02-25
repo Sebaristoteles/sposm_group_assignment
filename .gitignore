@@ -30,3 +30,6 @@ rsconnect/
 .DS_Store
 *.Rproj
 *.rds
+
+# ignore copies for Shiny App publication
+/app_ger_power_plant_explorer/
